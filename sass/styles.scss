@@ -6,6 +6,18 @@ $tertiary: #99E2D0;
 $dark-grey: #EAEAEA;
 $grey: #F6F6F6;
 
+// mixin
+
+@mixin flexbox-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin box-shadow($_opacity) {
+    box-shadow: 0px 5px 10px 1px darken($dark-grey, $_opacity);
+}
+
 * {
     font-family: 'Roboto', sans-serif;
 }
@@ -15,12 +27,11 @@ body {
 }
 
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flexbox-column-center;
+
 
     & .logo {
-        box-shadow: 0px 1px 5px 1px darken($dark-grey, 10%);
+        @include box-shadow(10%);
         z-index: 5;
         & img {
             width: 50%;
@@ -43,4 +54,29 @@ header {
     }
 }
 
-// .reservation
+.reservation {
+    @include flexbox-column-center;
+    background-color: $grey;
+    // font-size: 90%;
+    text-align: center;
+
+    & h1 {
+        padding: 1em 2em 0.5em 2em;
+        margin: 0;
+    }
+    & p {
+        padding: 0 2em 1em 2em;
+        margin: 0;
+        font-weight: 300;
+    }
+    & button {
+        background: linear-gradient(180deg, $secondary 0%, $primary 70%);
+        border-radius: 50px;
+        border: none;
+        color: white;
+        padding: 1em;
+        font-weight: 400;
+        margin: 1em 0 3.5em 0;
+        @include box-shadow(20%);
+    }
+}
