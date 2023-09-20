@@ -8,6 +8,14 @@ $grey: #F6F6F6;
 
 // mixin
 
+
+@mixin filled-heart {
+     	clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
+    }
+@mixin contoured-heart {
+         	clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
+    }
+
 @mixin flexbox-column-center {
     display: flex;
     flex-direction: column;
@@ -135,3 +143,227 @@ header {
 
 
 }
+
+.restaurants {
+    display: flex;
+    flex-direction: column;
+    background-color: $grey;
+    padding: 2em 1em 2em 1em;
+
+    &__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        // max-width: 100vw;
+
+        article {
+            height: 340px;
+            max-width: 100vw;
+
+            img {
+                display: block;
+                max-width: 100%;
+                height:30vh;
+                width: 100vw;
+                border-radius: 20px 20px 0 0;
+                object-fit: cover;
+                overflow: hidden;
+            }
+    
+            .restaurants__card--disposition {
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex-wrap: wrap;
+                // width: 93vw;
+                height: 12vh;
+                gap: 0.5em;
+                padding-left: 1em;
+                border-radius: 0 0 15px 15px;
+    
+    
+                .bold-txt {
+                    font-weight: 800;
+                }
+            }
+                // .restaurants__card--disposition {
+                //     display: flex;
+                //     justify-content: center;
+                //     align-items: center;
+                //     height: 100vh;
+                // }
+    
+            
+
+
+            
+                
+                // input[type="checkbox"] + label {
+                //     position: relative;
+                //     padding-left: 35px;
+                //     display: inline-block;
+                //     font-size: 16px;
+                // }
+                 
+                // input[type="checkbox"] + label:before {
+                //     content: "\1F5A4";
+                //     top: -11px;
+                //     left: -8px;
+                //     border: 1px solid transparent;    
+                //     padding: 10px;
+                //     border-radius: 3px;
+                //     display: block;
+                //     position: absolute;
+                //     transition:  .5s ease;
+                // }
+
+                // input[type="checkbox"]:checked + label:before {
+                //     border: 1px solid transparent;
+                //     background-color: transparent;
+                // }
+                 
+                // input[type="checkbox"]:checked + label:after {
+                //     content: '\1F49B';
+                //     font-size: 18px;
+                //     position: absolute;
+                //     top: -1px;
+                //     left: 1px;
+                //     color: $grey;
+                //     transition:  .5s ease;
+                // }
+        }
+    }
+
+        
+}
+
+
+//  checkbox
+
+
+// .align-heart {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 1vh;
+//     height: 10px;
+//     left: 0;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+
+// }
+
+
+
+input[type="checkbox"] {
+    // display: block;
+    display: none;
+}
+
+label {
+    display: block;
+    
+}
+
+input[type="checkbox"] + label {
+    position: relative;
+    // display: inline-block;
+}
+
+
+
+input, label {
+    display: block;
+    z-index: 999;
+    background: black;
+    width: 4em;
+    height: 4em;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    // position: relative;
+    margin: 4em auto;
+    @include contoured-heart;
+    // filter: url(#heart);
+    transform: scale(5);
+    // .coeur {
+    //     background: black;
+    //     clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
+
+    // }
+    transition: all 250ms cubic-bezier(.4,.0,.23,1);
+    // animation: shrink-bounce 200ms cubic-bezier(.4,.0,.23,1);
+}
+
+
+
+input + label + label {
+    // width: 4em;
+    // height: 4em;
+    // height: 100%;
+    // width: 100%;
+    transform-origin: center;
+    position: relative;
+    // margin: 4em auto;
+    left: -75px;
+    top: 0;
+    background: white;
+    z-index: 13;
+    @include filled-heart;
+    transform: scale(5);
+}
+
+
+
+input:checked
+    + label {
+        display: block;
+        width: 4em;
+        height: 4em;
+        transform-origin: center;
+        position: relative;
+        background: linear-gradient(0deg, $secondary 60%, $primary 90%);
+        margin: 4em auto;
+        @include filled-heart;
+        // transition: all 250ms cubic-bezier(.4,.0,.23,1); 
+        animation: shrink-bounce 200ms cubic-bezier(.4,.0,.23,1);
+    
+        
+    
+} 
+
+input:checked + label + label {
+    display: block;
+    background: transparent;
+}
+
+
+
+
+
+
+
+// .align-heart {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 20vh;
+// }
+
+// input ~ .heart{
+//     display: inline-block;
+//     background-color: transparent;
+//     width: 4em;
+//     height: 4em;
+//     transform-origin: center;
+//     position: relative;
+//     margin: 4em auto;
+//     clip-path: path("M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z");
+// }
+
+// input[type="checkbox"]:checked ~ .heart{
+//     background-color: blue!important;
+    
+// }
