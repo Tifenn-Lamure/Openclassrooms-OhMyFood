@@ -34,6 +34,14 @@ p {
     margin: 0;
 }
 
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+}
+
 body {
     margin: 0;
 }
@@ -43,11 +51,14 @@ container {
 }
 
 header {
+    height: 56vh;
+    position: relative;
     .logo-section {
         display: flex;
         // justify-content: space-between;
         align-items: center;
         padding: 0.5em 0 0.5em 0;
+        height: 8.5vh;
 
         
         a {
@@ -72,4 +83,74 @@ header {
                 }
             }
     }
+
+    .picture-background {
+        
+        .img-restaurant {
+            object-fit: cover;
+            width: 100vw;
+            height: 50vh;
+        }
+    }
 }
+
+main {
+    background-color: $grey;
+    border-radius: 40px 40px 0 0;
+    position: relative;
+    top: -30px;
+
+    .restaurant-title {
+        padding: 2em 3em 2em 1em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {
+            font-family: shrikhand;
+            font-size: 28px;
+            font-style: oblique(50);
+            font-weight: 300;
+        }
+
+        .align-heart {
+            height: 4vh;
+            width: 6.1vw;
+            padding-bottom: 0.5em;
+            .heart-img {
+                width: 8vw;
+                height: 5vh;
+            }
+        }
+    }
+
+}
+
+
+
+
+
+// Checkbox 
+
+input {
+    opacity: 0;
+    position: absolute;
+    z-index: 999;
+}
+
+input + label {
+    position: relative;
+    @include contoured-heart;
+    background: black;
+    display: inline-block;
+    transform-origin: center;
+    transition: all 250ms cubic-bezier(.4,.0,.23,1);
+}
+
+input:checked + label {
+    @include filled-heart;
+    background: linear-gradient(0deg, $secondary 60%, $primary 90%);
+    display: inline-block;
+    transform-origin: center;
+    animation: shrink-bounce 200ms cubic-bezier(.4,.0,.23,1);
+} 

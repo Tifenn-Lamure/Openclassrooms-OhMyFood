@@ -6,6 +6,14 @@ p {
   margin: 0;
 }
 
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
 body {
   margin: 0;
 }
@@ -14,10 +22,15 @@ container {
   width: 100%;
 }
 
+header {
+  height: 56vh;
+  position: relative;
+}
 header .logo-section {
   display: flex;
   align-items: center;
   padding: 0.5em 0 0.5em 0;
+  height: 8.5vh;
 }
 header .logo-section a {
   text-decoration: none;
@@ -32,4 +45,63 @@ header .logo-section .logo img {
   width: 45vw;
   margin-left: 25%;
   padding-top: 0.6em;
+}
+header .picture-background .img-restaurant {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100vw;
+  height: 50vh;
+}
+
+main {
+  background-color: #F6F6F6;
+  border-radius: 40px 40px 0 0;
+  position: relative;
+  top: -30px;
+}
+main .restaurant-title {
+  padding: 2em 3em 2em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .restaurant-title h1 {
+  font-family: shrikhand;
+  font-size: 28px;
+  font-style: oblique(50);
+  font-weight: 300;
+}
+main .restaurant-title .align-heart {
+  height: 4vh;
+  width: 6.1vw;
+  padding-bottom: 0.5em;
+}
+main .restaurant-title .align-heart .heart-img {
+  width: 8vw;
+  height: 5vh;
+}
+
+input {
+  opacity: 0;
+  position: absolute;
+  z-index: 999;
+}
+
+input + label {
+  position: relative;
+  -webkit-clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
+          clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
+  background: black;
+  display: inline-block;
+  transform-origin: center;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.23, 1);
+}
+
+input:checked + label {
+  -webkit-clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
+          clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
+  background: linear-gradient(0deg, #FF79DA 60%, #9356DC 90%);
+  display: inline-block;
+  transform-origin: center;
+  animation: shrink-bounce 200ms cubic-bezier(0.4, 0, 0.23, 1);
 }/*# sourceMappingURL=styles-page-menu.css.map */
