@@ -166,26 +166,31 @@ footer {
   justify-content: space-evenly;
   background-color: #2b2b2b;
   color: white;
-  height: 30vh;
-  padding: 0 0 2em 1.5em;
+  height: 35vh;
+  padding: 0.5em 0 0.5em 1.5em;
 }
 footer .logo-booki {
   height: 4vh;
   filter: brightness(100);
   align-self: flex-start;
 }
-footer p {
+footer .display-footer {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap: 0.5em;
 }
-footer p i {
-  width: 3vw;
+footer .display-footer .footer-href {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
-footer p a {
+footer .display-footer .footer-href i {
+  width: 5vw;
+  margin-right: 0.8em;
+}
+footer .display-footer .footer-href a {
   text-decoration: none;
   color: white;
-  padding-left: 0.5em;
 }
 
 input {
