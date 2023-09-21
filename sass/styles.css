@@ -123,6 +123,10 @@ header .btn .txt {
   height: 45vh;
   max-width: 100vw;
 }
+.restaurants__card article a {
+  text-decoration: none;
+  color: black;
+}
 .restaurants__card article img {
   display: block;
   max-width: 100%;

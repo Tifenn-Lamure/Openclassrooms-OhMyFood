@@ -159,6 +159,11 @@ header {
             height: 45vh;
             max-width: 100vw;
 
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
             img {
                 display: block;
                 max-width: 100%;
