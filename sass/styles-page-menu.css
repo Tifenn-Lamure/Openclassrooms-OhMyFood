@@ -15,6 +15,7 @@ h2 {
 }
 
 body {
+  background-color: #F6F6F6;
   margin: 0;
 }
 
@@ -25,6 +26,7 @@ container {
 header {
   height: 56vh;
   position: relative;
+  background-color: white;
 }
 header .logo-section {
   display: flex;
@@ -58,9 +60,9 @@ main {
   border-radius: 40px 40px 0 0;
   position: relative;
   top: -30px;
+  padding: 2em 1em 2em 1em;
 }
 main .restaurant-title {
-  padding: 2em 3em 2em 1em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,10 +77,123 @@ main .restaurant-title .align-heart {
   height: 4vh;
   width: 6.1vw;
   padding-bottom: 0.5em;
+  padding-right: 2em;
 }
 main .restaurant-title .align-heart .heart-img {
   width: 8vw;
   height: 5vh;
+}
+main .menu-section {
+  padding: 1.5em 0 1.5em 0;
+}
+main .menu-section .section-title {
+  font-size: 1em;
+  font-weight: 300;
+  padding-bottom: 0.3em;
+}
+main .menu-section .blue-line {
+  display: block;
+  width: 10vw;
+  height: 3px;
+  background: #99E2D0;
+}
+main .menu-section article {
+  display: flex;
+  background-color: white;
+  border-radius: 15px;
+  margin-top: 0.9em;
+  box-shadow: 0px 5px 10px 1px #dddddd;
+}
+main .menu-section article .menu-card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 0.9em;
+  gap: 0.2em;
+}
+main .menu-section article .menu-card-subtitle-and-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+main .menu-section article .menu-check_green {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #99E2D0;
+  width: 100px;
+  border-radius: 0 15px 15px 0;
+}
+main .menu-section article .menu-check_green i {
+  color: white;
+}
+main .menu-section .dish-name {
+  font-weight: 500;
+  font-size: 18px;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .menu-section .assaisonement_name {
+  font-weight: 300;
+  font-size: 15px;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .menu-section .price {
+  font-weight: 700;
+  font-size: 15px;
+}
+main .button button {
+  width: 50vw;
+  background: linear-gradient(180deg, #FF79DA 0%, #9356DC 70%);
+  border-radius: 50px;
+  border: none;
+  color: white;
+  padding: 1em;
+  font-weight: 400;
+  margin: 1em 0 0 25%;
+  box-shadow: 0px 5px 10px 1px #b7b7b7;
+}
+main .button button span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #2b2b2b;
+  color: white;
+  height: 35vh;
+  padding: 0.5em 0 0.5em 1.5em;
+}
+footer .logo-booki {
+  height: 4vh;
+  filter: brightness(100);
+  align-self: flex-start;
+}
+footer .display-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+footer .display-footer .footer-href {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+footer .display-footer .footer-href i {
+  width: 5vw;
+  margin-right: 0.8em;
+}
+footer .display-footer .footer-href a {
+  text-decoration: none;
+  color: white;
 }
 
 input {
