@@ -169,11 +169,11 @@ footer {
   justify-content: space-evenly;
   background-color: #2b2b2b;
   color: white;
-  height: 35vh;
-  padding: 0.5em 0 0.5em 1.5em;
+  height: 30vh;
+  padding: 0.5em 0 0 1.5em;
 }
 footer .logo-booki {
-  height: 4vh;
+  height: 3vh;
   filter: brightness(100);
   align-self: flex-start;
 }
@@ -189,7 +189,7 @@ footer .display-footer .footer-href {
 }
 footer .display-footer .footer-href i {
   width: 5vw;
-  margin-right: 0.8em;
+  margin-right: 0.5em;
 }
 footer .display-footer .footer-href a {
   text-decoration: none;

@@ -221,18 +221,17 @@ main {
    }     
 }
 
-
 footer {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     background-color: darken($dark-grey, 75%);
     color: white;
-    height: 35vh;
-    padding: 0.5em 0 0.5em 1.5em;
+    height: 30vh;
+    padding: 0.5em 0 0 1.5em;
 
     .logo-booki {
-        height: 4vh;
+        height: 3vh;
         filter: brightness(100);
         align-self: flex-start;
     }
@@ -249,7 +248,7 @@ footer {
 
             i {
                 width: 5vw;
-                margin-right: 0.8em;
+                margin-right: 0.5em;
             }
             a {
                 text-decoration: none;
@@ -258,9 +257,6 @@ footer {
         }
     }
 }
-
-
-
 
 
 
