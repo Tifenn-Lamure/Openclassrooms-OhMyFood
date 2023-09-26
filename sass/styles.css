@@ -1,3 +1,30 @@
+@keyframes reservation-btn_in {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.8;
+    box-shadow: -1px 0px 10px 5px #d1d1d1;
+  }
+}
+@keyframes reservation-btn_out {
+  from {
+    opacity: 0.8;
+    box-shadow: -1px 0px 10px 5px #d1d1d1;
+  }
+  to {
+    opacity: 1;
+    box-shadow: 0px 5px 10px 1px #b7b7b7;
+  }
+}
+@keyframes heart-btn_fillingup {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: 50px;
+  }
+}
 * {
   font-family: "Roboto", sans-serif;
 }
@@ -60,7 +87,7 @@ header .btn .txt {
   margin: 0;
   font-weight: 300;
 }
-.reservation button {
+.reservation-btn {
   background: linear-gradient(180deg, #FF79DA 0%, #9356DC 70%);
   border-radius: 50px;
   border: none;
@@ -69,6 +96,10 @@ header .btn .txt {
   font-weight: 400;
   margin: 1em 0 3.5em 0;
   box-shadow: 0px 5px 10px 1px #b7b7b7;
+  animation: reservation-btn_out 500ms ease-in-out;
+}
+.reservation-btn:hover {
+  animation: reservation-btn_in 500ms ease-in-out forwards;
 }
 
 .fonctionement {
@@ -130,9 +161,9 @@ header .btn .txt {
   height: auto;
   max-width: 100vw;
 }
-.restaurants__card article a {
+.restaurants__card article .link-restaurant {
+  display: inline-block;
   text-decoration: none;
-  color: black;
 }
 .restaurants__card article .new-label {
   background-color: #99E2D0;
@@ -175,17 +206,20 @@ header .btn .txt {
   margin-left: 1em;
   width: 100%;
 }
-.restaurants__card article .restaurants__card--disposition .align-heart {
-  display: flex;
-  height: auto;
-  max-width: 11%;
-  padding: 1.2em 1em 0 0;
-}
 .restaurants__card article .restaurants__card--disposition .bold-txt {
   font-weight: 800;
+  font-size: 18px;
+  color: black;
 }
 .restaurants__card article .restaurants__card--disposition .restaurant-name {
   font-size: 17px;
+  color: black;
+}
+.restaurants__card article .restaurants__card--disposition .align-heart {
+  display: flex;
+  width: 40px;
+  height: 50%;
+  padding: 1em 1em 0 0.2em;
 }
 
 footer {
@@ -224,23 +258,43 @@ footer .display-footer .footer-href a {
 input {
   opacity: 0;
   position: absolute;
-  z-index: 999;
+  z-index: 99;
 }
 
 input + label {
   position: relative;
-  -webkit-clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
-          clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
-  background: black;
-  display: inline-block;
-  transform-origin: center;
-  transition: all 1s cubic-bezier(0.4, 0, 0.23, 1);
-}
-
-input:checked + label {
   -webkit-clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
           clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
   background: linear-gradient(0deg, #FF79DA 60%, #9356DC 90%);
-  display: inline-block;
-  transform-origin: center;
+  width: 100%;
+  z-index: 1;
+}
+
+input + label > .white {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  background: white;
+  width: 100%;
+  z-index: 2;
+}
+
+input + label > .border-black {
+  width: 40px;
+  height: 40px;
+  top: -40px;
+  position: relative;
+  -webkit-clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
+          clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
+  background: black;
+  width: 100%;
+  z-index: 3;
+}
+
+input:checked + label > .white {
+  animation: heart-btn_fillingup 1s forwards;
+}
+
+input:checked + label > .border-black {
+  background: transparent;
 }/*# sourceMappingURL=styles.css.map */
