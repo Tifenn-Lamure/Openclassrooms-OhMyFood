@@ -1,33 +1,18 @@
-// variables 
+@import 'common';
 
-$primary: #9356DC; 
-$secondary: #FF79DA;
-$tertiary: #99E2D0;
-$dark-grey: #EAEAEA;
-$grey: #F6F6F6;
+// variables
 
 $animation-dur: 700ms;
 $animation-del: 500ms;
 $secondary-anim-del: $animation-dur + $animation-del + 500ms;
 $num-dish: 12;
+
 // mixin
-
-
-@mixin filled-heart {
-    clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
-}
-@mixin contoured-heart {
-    clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
-}
 
 @mixin flexbox-column-center {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-@mixin box-shadow($_opacity) {
-    box-shadow: 0px 5px 10px 1px darken($dark-grey, $_opacity);
 }
 
 //Animations 
@@ -49,10 +34,12 @@ $num-dish: 12;
 @keyframes text-hidden {
     from {
         max-width: 300px;
+        // max-width: 100%;
     }
 
     to {
         max-width: 230px;
+        // max-width: 80%;
     }
 }
 
@@ -231,7 +218,6 @@ main {
                     padding: 0.9em;
                     width: 100%;
                     // max-width: 100%;
-                    // margin-right: auto;
                     margin-right: 0;
 
                     &:hover {
@@ -287,38 +273,31 @@ main {
                 }
             }
 
-            // .menu-card-text-title {
-            //     display: flex;
-            //     flex-direction: column;
-            //     // flex-wrap: wrap;
-            //     // height: 35px;
-            //     &:hover {
-            //     animation: text-hidden 0.5s both;
-            //     }
+            .menu-card-text-title {
+                display: flex;
+                flex-direction: column;
+                // flex-wrap: wrap;
+                // height: 35px;
+                &:hover {
+                animation: text-hidden 0.5s both;
+                }
+            }
             .dish-name {
                 font-weight: 500;
                 font-size: 18px;
-                // max-width: 300px;
+                max-width: 300px;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-
-                // &:hover, .assaisonement_name {
-                //     animation: text-hidden 0.5s both;
-                // }
             }
 
             .assaisonement_name {
                 font-weight: 300;
                 font-size: 15px;
-                // max-width: 300px;
+                max-width: 300px;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-
-                // &:hover, .dish-name {
-                //     animation: text-hidden 0.5s both;
-                // }
             }
         }
 
@@ -326,12 +305,9 @@ main {
         //     animation: thread 1s 1s ease-in-out backwards;
         // }
 
-
- 
     }
 
     .button {
-
         button {
             width: 50vw;
             background: linear-gradient(180deg, $secondary 0%, $primary 70%);
@@ -392,8 +368,6 @@ footer {
         }
     }
 }
-
-
 
 // Checkbox 
 

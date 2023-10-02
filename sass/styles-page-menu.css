@@ -1,3 +1,15 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
 @keyframes thread {
   0% {
     opacity: 0;
@@ -229,9 +241,17 @@ main .menu-section article .menu-card .menu-check_green {
 main .menu-section article .menu-card .menu-check_green i {
   color: white;
 }
+main .menu-section article .menu-card-text-title {
+  display: flex;
+  flex-direction: column;
+}
+main .menu-section article .menu-card-text-title:hover {
+  animation: text-hidden 0.5s both;
+}
 main .menu-section article .dish-name {
   font-weight: 500;
   font-size: 18px;
+  max-width: 300px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -239,6 +259,7 @@ main .menu-section article .dish-name {
 main .menu-section article .assaisonement_name {
   font-weight: 300;
   font-size: 15px;
+  max-width: 300px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
