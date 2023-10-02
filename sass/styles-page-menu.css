@@ -16,6 +16,25 @@
     max-width: 230px;
   }
 }
+@keyframes reservation-btn_in {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.8;
+    box-shadow: -1px 0px 10px 5px #d1d1d1;
+  }
+}
+@keyframes reservation-btn_out {
+  from {
+    opacity: 0.8;
+    box-shadow: -1px 0px 10px 5px #d1d1d1;
+  }
+  to {
+    opacity: 1;
+    box-shadow: 0px 5px 10px 1px #b7b7b7;
+  }
+}
 * {
   font-family: "Roboto", sans-serif;
 }
@@ -94,7 +113,7 @@ main .restaurant-title h1 {
 main .restaurant-title .align-heart {
   height: 4vh;
   width: 6.1vw;
-  padding-bottom: 0.5em;
+  padding-bottom: 1em;
   padding-right: 2em;
 }
 main .restaurant-title .align-heart .heart-img {
@@ -224,7 +243,7 @@ main .menu-section article .assaisonement_name {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-main .menu-section .button button {
+main .button button {
   width: 50vw;
   background: linear-gradient(180deg, #FF79DA 0%, #9356DC 70%);
   border-radius: 50px;
@@ -234,8 +253,12 @@ main .menu-section .button button {
   font-weight: 400;
   margin: 1em 0 0 25%;
   box-shadow: 0px 5px 10px 1px #b7b7b7;
+  animation: reservation-btn_out 500ms ease-in-out backwards;
 }
-main .menu-section .button button span {
+main .button button:hover {
+  animation: reservation-btn_in 500ms ease-in-out forwards;
+}
+main .button button span {
   font-size: 16px;
   font-weight: 500;
 }

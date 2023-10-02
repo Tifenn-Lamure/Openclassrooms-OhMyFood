@@ -56,6 +56,28 @@ $num-dish: 12;
     }
 }
 
+@keyframes reservation-btn_in {
+    from {
+    opacity: 1;   
+    }
+
+    to {
+    opacity: 0.8;
+    box-shadow: -1px 0px 10px 5px darken($dark-grey, 10);
+    }
+}
+
+@keyframes reservation-btn_out {
+    from {
+    opacity: 0.8;
+    box-shadow: -1px 0px 10px 5px darken($dark-grey, 10);
+       
+    }
+    to {
+    opacity: 1;
+    box-shadow: 0px 5px 10px 1px darken($dark-grey, 20);
+    }
+}
 // Layout 
 
 * {
@@ -152,7 +174,7 @@ main {
         .align-heart {
             height: 4vh;
             width: 6.1vw;
-            padding-bottom: 0.5em;
+            padding-bottom: 1em;
             padding-right: 2em;
             .heart-img {
                 width: 8vw;
@@ -304,26 +326,33 @@ main {
         //     animation: thread 1s 1s ease-in-out backwards;
         // }
 
-        .button {
 
-            button {
-                width: 50vw;
-                background: linear-gradient(180deg, $secondary 0%, $primary 70%);
-                border-radius: 50px;
-                border: none;
-                color: white;
-                padding: 1em;
-                font-weight: 400;
-                margin: 1em 0 0 25%;
-                @include box-shadow(20%);
+ 
+    }
 
-                span {
-                    font-size: 16px;
-                    font-weight: 500;
-                }
+    .button {
+
+        button {
+            width: 50vw;
+            background: linear-gradient(180deg, $secondary 0%, $primary 70%);
+            border-radius: 50px;
+            border: none;
+            color: white;
+            padding: 1em;
+            font-weight: 400;
+            margin: 1em 0 0 25%;
+            @include box-shadow(20%);
+            animation: reservation-btn_out 500ms ease-in-out backwards;
+
+            &:hover { 
+            animation: reservation-btn_in 500ms ease-in-out forwards;
+            }
+
+            span {
+                font-size: 16px;
+                font-weight: 500;
             }
         }
- 
     }
 } 
 
