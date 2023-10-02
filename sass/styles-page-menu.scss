@@ -6,15 +6,19 @@ $tertiary: #99E2D0;
 $dark-grey: #EAEAEA;
 $grey: #F6F6F6;
 
+$animation-dur: 700ms;
+$animation-del: 500ms;
+$secondary-anim-del: $animation-dur + $animation-del + 500ms;
+$num-dish: 12;
 // mixin
 
 
 @mixin filled-heart {
-     	clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
-    }
+    clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
+}
 @mixin contoured-heart {
-         	clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
-    }
+    clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
+}
 
 @mixin flexbox-column-center {
     display: flex;
@@ -25,6 +29,34 @@ $grey: #F6F6F6;
 @mixin box-shadow($_opacity) {
     box-shadow: 0px 5px 10px 1px darken($dark-grey, $_opacity);
 }
+
+//Animations 
+
+@keyframes thread {
+    0%{
+        // top: -100px;
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        // top: 0;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes text-hidden {
+    from {
+        max-width: 300px;
+    }
+
+    to {
+        max-width: 230px;
+    }
+}
+
+// Layout 
 
 * {
     font-family: 'Roboto', sans-serif;
@@ -60,29 +92,27 @@ header {
         align-items: center;
         padding: 0.5em 0 0.5em 0;
         height: 8.5vh;
-
         
         a {
             text-decoration: none;
             color: black;
         }
-    
 
-            .back-button {
-                i {
-                    color: darken($dark-grey, 70);
-                    width: 10vw;
-                    padding-left: 1em;
-                }
+        .back-button {
+            i {
+                color: darken($dark-grey, 70);
+                width: 10vw;
+                padding-left: 1em;
             }
+        }
 
-            .logo {
-                img {
-                width: 45vw;
-                margin-left: 25%;
-                padding-top: 0.6em;
-                }
+        .logo {
+            img {
+            width: 45vw;
+            margin-left: 25%;
+            padding-top: 0.6em;
             }
+        }
     }
 
     .picture-background {
@@ -101,11 +131,16 @@ main {
     position: relative;
     top: -30px;
     padding: 2em 1em 2em 1em;
+    // animation: thread 1s 1s ease-in-out fowards;
+
+    // &::after {
+    //     animation: thread 1s 1s ease-in-out fowards; }
 
     .restaurant-title {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        
 
         h1 {
             font-family: shrikhand;
@@ -128,6 +163,14 @@ main {
 
     .menu-section {
         padding: 1.5em 0 1.5em 0;
+        display: block;
+
+        @for $i from 1 through $num-dish {
+            &--#{$i} {
+                animation: thread ($animation-del * $i * 0.6) ease-in-out $animation-dur normal backwards running;
+            }
+        }
+
         .section-title {
             font-size: 1em;
             font-weight: 300;
@@ -145,81 +188,144 @@ main {
             background-color: white;
             border-radius: 15px;
             margin-top: 0.9em;
-            @include box-shadow(5); 
+            @include box-shadow(5);
+            // animation: thread $secondary-anim-del 1s ease-in-out backwards; 
+            // animation: $secondary-anim-del ease-in-out 1s 1 normal backwards running thread;
 
             .menu-card{
                 display: flex;
-                flex-direction: column;
-                width: 300px;
-                padding: 0.9em;
-                gap: 0.2em;
+                width: 100%;
+                overflow: hidden;
+                // gap: 1.2em;
+                // padding-right: 0px;
+                 
+                &-text {
 
-                &-subtitle-and-price {
                     display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
+                    position: relative;
+                    transform-origin: left;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                    padding: 0.9em;
+                    width: 100%;
+                    // max-width: 100%;
+                    // margin-right: auto;
+                    margin-right: 0;
+
+                    &:hover {
+                        animation: text-hidden 0.5s both;
+                        // width: 80%;
+                        // transition: max-width 1s;
+                        // max-width: 70%;
+                    }
+
+                    &-subtitle-and-price {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                    }
+
+                    .price {
+                    //  width:100%;   
+                        text-align: right;
+                        font-weight: 700;
+                        font-size: 15px;
+                    }
+                }
+                &:hover {
+                    transition: margin-right 1s;
+                    margin-right: 0;
+                }
+
+                &:hover .menu-check_green {
+                    // right: 0px;
+                    // transition: transform 1s;
+                    transform: translateX(0);
+                    width: 100px;
+                }
+
+                .menu-check_green {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $tertiary;
+                    width: 0;
+                    border-radius: 0 15px 15px 0;
+                    transition: all 0.5s;
+                    position: relative;
+                    // transform-origin: right;
+                    right: 0;
+                    transform: translateX(60px);
+                    // transform: scaleX(0);
+                    // transform-origin: right;
+
+                    i {
+                        color: white;
+                    }
                 }
             }
 
-            .menu-check_green {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background-color: $tertiary;
-                width: 100px;
-                border-radius: 0 15px 15px 0;
-
-                i {
-                    color: white;
-                }
-            }
-        }
-
-        .dish-name {
-            font-weight: 500;
-            font-size: 18px;
-            width: 200px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .assaisonement_name {
-            font-weight: 300;
-            font-size: 15px;
-            width: 200px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .price {
-            font-weight: 700;
-            font-size: 15px;
-        }
-    }
-
-   .button {
-
-        button {
-            width: 50vw;
-            background: linear-gradient(180deg, $secondary 0%, $primary 70%);
-            border-radius: 50px;
-            border: none;
-            color: white;
-            padding: 1em;
-            font-weight: 400;
-            margin: 1em 0 0 25%;
-            @include box-shadow(20%);
-
-            span {
-                font-size: 16px;
+            // .menu-card-text-title {
+            //     display: flex;
+            //     flex-direction: column;
+            //     // flex-wrap: wrap;
+            //     // height: 35px;
+            //     &:hover {
+            //     animation: text-hidden 0.5s both;
+            //     }
+            .dish-name {
                 font-weight: 500;
+                font-size: 18px;
+                // max-width: 300px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                // &:hover, .assaisonement_name {
+                //     animation: text-hidden 0.5s both;
+                // }
+            }
+
+            .assaisonement_name {
+                font-weight: 300;
+                font-size: 15px;
+                // max-width: 300px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                // &:hover, .dish-name {
+                //     animation: text-hidden 0.5s both;
+                // }
             }
         }
 
-   }     
-}
+        // .container-menu-card {
+        //     animation: thread 1s 1s ease-in-out backwards;
+        // }
+
+        .button {
+
+            button {
+                width: 50vw;
+                background: linear-gradient(180deg, $secondary 0%, $primary 70%);
+                border-radius: 50px;
+                border: none;
+                color: white;
+                padding: 1em;
+                font-weight: 400;
+                margin: 1em 0 0 25%;
+                @include box-shadow(20%);
+
+                span {
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+ 
+    }
+} 
 
 footer {
     display: flex;

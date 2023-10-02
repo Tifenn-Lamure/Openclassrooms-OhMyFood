@@ -1,3 +1,21 @@
+@keyframes thread {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes text-hidden {
+  from {
+    max-width: 300px;
+  }
+  to {
+    max-width: 230px;
+  }
+}
 * {
   font-family: "Roboto", sans-serif;
 }
@@ -85,6 +103,43 @@ main .restaurant-title .align-heart .heart-img {
 }
 main .menu-section {
   padding: 1.5em 0 1.5em 0;
+  display: block;
+}
+main .menu-section--1 {
+  animation: thread 300ms ease-in-out 700ms normal backwards running;
+}
+main .menu-section--2 {
+  animation: thread 600ms ease-in-out 700ms normal backwards running;
+}
+main .menu-section--3 {
+  animation: thread 900ms ease-in-out 700ms normal backwards running;
+}
+main .menu-section--4 {
+  animation: thread 1200ms ease-in-out 700ms normal backwards running;
+}
+main .menu-section--5 {
+  animation: thread 1500ms ease-in-out 700ms normal backwards running;
+}
+main .menu-section--6 {
+  animation: thread 1800ms ease-in-out 700ms normal backwards running;
+}
+main .menu-section--7 {
+  animation: thread 2100ms ease-in-out 700ms normal backwards running;
+}
+main .menu-section--8 {
+  animation: thread 2400ms ease-in-out 700ms normal backwards running;
+}
+main .menu-section--9 {
+  animation: thread 2700ms ease-in-out 700ms normal backwards running;
+}
+main .menu-section--10 {
+  animation: thread 3000ms ease-in-out 700ms normal backwards running;
+}
+main .menu-section--11 {
+  animation: thread 3300ms ease-in-out 700ms normal backwards running;
+}
+main .menu-section--12 {
+  animation: thread 3600ms ease-in-out 700ms normal backwards running;
 }
 main .menu-section .section-title {
   font-size: 1em;
@@ -106,48 +161,70 @@ main .menu-section article {
 }
 main .menu-section article .menu-card {
   display: flex;
-  flex-direction: column;
-  width: 300px;
-  padding: 0.9em;
-  gap: 0.2em;
+  width: 100%;
+  overflow: hidden;
 }
-main .menu-section article .menu-card-subtitle-and-price {
+main .menu-section article .menu-card-text {
+  display: flex;
+  position: relative;
+  transform-origin: left;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 0.9em;
+  width: 100%;
+  margin-right: 0;
+}
+main .menu-section article .menu-card-text:hover {
+  animation: text-hidden 0.5s both;
+}
+main .menu-section article .menu-card-text-subtitle-and-price {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-main .menu-section article .menu-check_green {
+main .menu-section article .menu-card-text .price {
+  text-align: right;
+  font-weight: 700;
+  font-size: 15px;
+}
+main .menu-section article .menu-card:hover {
+  transition: margin-right 1s;
+  margin-right: 0;
+}
+main .menu-section article .menu-card:hover .menu-check_green {
+  transform: translateX(0);
+  width: 100px;
+}
+main .menu-section article .menu-card .menu-check_green {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #99E2D0;
-  width: 100px;
+  width: 0;
   border-radius: 0 15px 15px 0;
+  transition: all 0.5s;
+  position: relative;
+  right: 0;
+  transform: translateX(60px);
 }
-main .menu-section article .menu-check_green i {
+main .menu-section article .menu-card .menu-check_green i {
   color: white;
 }
-main .menu-section .dish-name {
+main .menu-section article .dish-name {
   font-weight: 500;
   font-size: 18px;
-  width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-main .menu-section .assaisonement_name {
+main .menu-section article .assaisonement_name {
   font-weight: 300;
   font-size: 15px;
-  width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-main .menu-section .price {
-  font-weight: 700;
-  font-size: 15px;
-}
-main .button button {
+main .menu-section .button button {
   width: 50vw;
   background: linear-gradient(180deg, #FF79DA 0%, #9356DC 70%);
   border-radius: 50px;
@@ -158,7 +235,7 @@ main .button button {
   margin: 1em 0 0 25%;
   box-shadow: 0px 5px 10px 1px #b7b7b7;
 }
-main .button button span {
+main .menu-section .button button span {
   font-size: 16px;
   font-weight: 500;
 }
