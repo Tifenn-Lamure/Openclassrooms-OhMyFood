@@ -25,6 +25,16 @@
     bottom: 50px;
   }
 }
+@keyframes ring {
+  0% {
+    transform: translate(0, -18px) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -18px) scale(1);
+    opacity: 0;
+  }
+}
 * {
   font-family: "Roboto", sans-serif;
 }
@@ -217,9 +227,9 @@ header .btn .txt {
 }
 .restaurants__card article .restaurants__card--disposition .align-heart {
   display: flex;
-  width: 40px;
-  height: 50%;
-  padding: 1em 1em 0 0.2em;
+  width: 32px;
+  height: 32px;
+  padding: 2em 2em 0 0.2em;
 }
 
 footer {
@@ -253,6 +263,10 @@ footer .display-footer .footer-href i {
 footer .display-footer .footer-href a {
   text-decoration: none;
   color: white;
+}
+
+.white, .border-black {
+  display: block;
 }
 
 input {
@@ -291,8 +305,20 @@ input + label > .border-black {
   z-index: 3;
 }
 
+input:checked ~ .border {
+  content: "";
+  width: 3em;
+  height: 3em;
+  border-radius: 100%;
+  border: 6px solid #FF79DA;
+  background-color: transparent;
+  position: absolute;
+  right: 2em;
+  animation: ring 2s 1 both;
+}
+
 input:checked + label > .white {
-  animation: heart-btn_fillingup 1s forwards;
+  animation: heart-btn_fillingup ease-out 1s forwards;
 }
 
 input:checked + label > .border-black {
