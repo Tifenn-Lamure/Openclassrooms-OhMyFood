@@ -41,7 +41,6 @@
     }
 
     25% {
-
     }
 
     50% {
@@ -49,7 +48,6 @@
     }
 
     75% {
-
     }
 
     100% {
@@ -256,7 +254,7 @@ header {
                 height: 12vh;
                 border-radius: 0 0 15px 15px;
 
-                .restaurants__card--disposition--left {
+                &--left {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -281,48 +279,11 @@ header {
                     display: flex;
                     width:32px;
                     height:32px;
-                    padding: 2em 2em 0 0.2em;
+                    padding: 1em 2em 0 0.2em;
                 }   
             }
         }
     }   
-}
-
-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: darken($dark-grey, 75%);
-    color: white;
-    height: 30vh;
-    padding: 0.5em 0 0 1.5em;
-
-    .logo-booki {
-        height: 3vh;
-        filter: brightness(100);
-        align-self: flex-start;
-    }
-
-    .display-footer {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5em;
-
-        .footer-href {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            i {
-                width: 5vw;
-                margin-right: 0.5em;
-            }
-            a {
-                text-decoration: none;
-                color: white;
-            }
-        }
-    }
 }
 
 //  checkbox

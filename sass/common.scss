@@ -31,3 +31,40 @@ p {
 body {
     margin: 0;
 }
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: darken($dark-grey, 75%);
+    color: white;
+    height: 30vh;
+    padding: 0.5em 0 0 1.5em;
+
+    .logo-booki {
+        height: 3vh;
+        filter: brightness(100);
+        align-self: flex-start;
+    }
+
+    .display-footer {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        .footer-href {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            i {
+                width: 1.5em;
+                margin-right: 0.5em;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+}
