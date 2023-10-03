@@ -16,11 +16,11 @@ footer {
   justify-content: space-evenly;
   background-color: #2b2b2b;
   color: white;
-  height: 30vh;
+  height: 22vh;
   padding: 0.5em 0 0 1.5em;
 }
 footer .logo-booki {
-  height: 3vh;
+  height: 2.5vh;
   filter: brightness(100);
   align-self: flex-start;
 }
@@ -97,6 +97,127 @@ container {
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
+}
+
+@keyframes translate-knife {
+  0% {
+    transform: translate(0);
+    opacity: 0;
+  }
+  10% {
+    transform: translate(132px);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(132px, 50px);
+  }
+  30% {
+    transform: translate(132px);
+  }
+  40% {
+    transform: translate(150px);
+  }
+  50% {
+    transform: translate(150px, 50px);
+  }
+  60% {
+    transform: translate(150px);
+  }
+  70% {
+    transform: translate(168px);
+  }
+  80% {
+    transform: translate(168px, 50px);
+  }
+  90% {
+    transform: translate(168px);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(300px);
+    opacity: 0;
+  }
+}
+@keyframes fade-slice {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.container-loader {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #F6F6F6;
+  position: fixed;
+  z-index: 9998;
+  transform: translateY(100%);
+  transition: transform 0.5s 2s;
+}
+.container-loader .loader {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 100%;
+  width: 300px;
+  margin: 0 auto;
+  z-index: 9999;
+}
+.container-loader .loader .knife {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10px;
+  animation: translate-knife 2s forwards;
+  z-index: 50;
+}
+.container-loader .loader .knife-handle {
+  background-color: #2a2a2a;
+  width: 10px;
+  height: 35px;
+}
+.container-loader .loader .knife-blade {
+  background-color: #2a2a2a;
+  border-radius: 0 80% 0 0;
+  width: 5px;
+  height: 70px;
+  margin: 0 auto;
+}
+.container-loader .loader .tomato {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 80px;
+}
+.container-loader .loader .tomato-red {
+  width: 80px;
+  height: 50px;
+  border-radius: 27% 27% 51% 47%/42% 38% 61% 58%;
+  background-color: tomato;
+  display: flex;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+  justify-content: center;
+  flex-direction: row;
+}
+.container-loader .loader .tomato-red-slice {
+  background-color: #F6F6F6;
+  width: 3px;
+  height: 50px;
+  z-index: 5;
+}
+.container-loader .loader .tomato-red-slice1 {
+  animation: 0.1s fade-slice 0.4s both;
+}
+.container-loader .loader .tomato-red-slice2 {
+  animation: 0.1s fade-slice 1.2s both;
+}
+.container-loader .loader .tomato-red-slice3 {
+  animation: 0.1s fade-slice 1.6s both;
 }
 
 header {
@@ -274,7 +395,7 @@ header .btn .txt {
   display: flex;
   width: 32px;
   height: 32px;
-  padding: 1em 2em 0 0.2em;
+  padding: 2em 2em 0 0.2em;
 }
 
 .white, .border-black {
