@@ -86,7 +86,10 @@ h2 {
 body {
     background-color: $grey;
     margin: 0;
-    background-color: white;
+
+    @media (min-width: 1024px){
+        background-color: white;
+    }
 }
 
 container {
@@ -106,8 +109,8 @@ main {
     background-color: $grey;
     border-radius: 40px 40px 0 0;
     position: relative;
-    top: -30px;
-    padding: 2em 1em 2em 1em;
+    top: -40px;
+    padding: 2em 1em 1em 1em;
     // animation: thread 1s 1s ease-in-out fowards;
 
     // &::after {
@@ -290,15 +293,20 @@ main {
     }
 
     .button {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
         button {
-            width: 30vw;
+            width: 15em;
             background: linear-gradient(180deg, $secondary 0%, $primary 70%);
             border-radius: 50px;
             border: none;
             color: white;
-            padding: 1em;
+            padding: 1em 1em 1em 1em;
             font-weight: 400;
-            margin: 0 auto;
+            margin: 0 auto 0 auto;
             @include box-shadow(20%);
             animation: reservation-btn_out 500ms ease-in-out backwards;
 
