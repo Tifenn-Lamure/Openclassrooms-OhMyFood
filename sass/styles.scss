@@ -246,7 +246,7 @@ main {
         color: darken($dark-grey , 70%);
 
         @media (min-width: 1024px) {
-             font-size: 12px;
+            font-size: 12px;
         }
         & .txt {
             margin-left: 10px;
@@ -488,7 +488,8 @@ main {
                         padding: 1.3em 2em 0 0.2em;
 
                         @media (min-width: 1024px) {
-                            padding: 1em 2em 0 0.2em;                        }
+                            padding: 1em 2em 0 0.2em; 
+                        }
                     }   
                 }
             }

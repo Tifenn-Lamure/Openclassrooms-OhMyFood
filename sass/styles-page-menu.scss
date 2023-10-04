@@ -86,6 +86,7 @@ h2 {
 body {
     background-color: $grey;
     margin: 0;
+    background-color: white;
 }
 
 container {
@@ -112,24 +113,33 @@ main {
     // &::after {
     //     animation: thread 1s 1s ease-in-out fowards; }
 
+    @media (min-width: 1024px){
+        width:80%;
+        margin: 0 auto;
+    }
+
     .restaurant-title {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        
 
+        @media (min-width: 1024px){
+            width:50%;
+            margin: 0 auto;
+        }
+        
         h1 {
             font-family: shrikhand;
             font-size: 28px;
-            font-style: oblique(50);
             font-weight: 300;
         }
 
         .align-heart {
             height: 4vh;
             width: 6.1vw;
-            padding-bottom: 1em;
             padding-right: 2em;
+            padding-top: 0.4em;
+
             .heart-img {
                 width: 8vw;
                 height: 5vh;
@@ -140,6 +150,11 @@ main {
     .menu-section {
         padding: 1.5em 0 1.5em 0;
         display: block;
+
+        @media (min-width: 1024px){
+            width:80%;
+            margin: 0 auto;
+        }
 
         @for $i from 1 through $num-dish {
             &--#{$i} {
@@ -276,19 +291,19 @@ main {
 
     .button {
         button {
-            width: 50vw;
+            width: 30vw;
             background: linear-gradient(180deg, $secondary 0%, $primary 70%);
             border-radius: 50px;
             border: none;
             color: white;
             padding: 1em;
             font-weight: 400;
-            margin: 1em 0 0 25%;
+            margin: 0 auto;
             @include box-shadow(20%);
             animation: reservation-btn_out 500ms ease-in-out backwards;
 
             &:hover { 
-            animation: reservation-btn_in 500ms ease-in-out forwards;
+                animation: reservation-btn_in 500ms ease-in-out forwards;
             }
 
             span {
