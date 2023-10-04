@@ -10,35 +10,96 @@ body {
   margin: 0;
 }
 
+header .logo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  position: relative;
+}
+header .logo-section a {
+  text-decoration: none;
+  color: black;
+  position: absolute;
+  left: 0;
+}
+header .logo-section a .back-button i {
+  color: #383838;
+  width: 10vw;
+  padding-left: 1em;
+}
+header .logo-section .logo {
+  z-index: 5;
+}
+header .logo-section .logo img {
+  height: 30px;
+  margin: 1em 0 0.5em 0;
+}
+
 footer {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: #2b2b2b;
   color: white;
-  height: 22vh;
-  padding: 0.5em 0 0 1.5em;
+  height: 21vh;
+  padding: 2em;
+}
+@media (min-width: 1024px) {
+  footer {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: end;
+    height: 5vh;
+  }
 }
 footer .logo-booki {
-  height: 2.5vh;
+  height: 3vh;
   filter: brightness(100);
   align-self: flex-start;
+}
+@media (min-width: 1024px) {
+  footer .logo-booki {
+    height: 2vh;
+    align-self: self-end;
+    margin: 0 3em 0 3em;
+  }
 }
 footer .display-footer {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
 }
-footer .display-footer .footer-href {
+@media (min-width: 1024px) {
+  footer .display-footer {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+@media (min-width: 1024px) {
+  footer .display-footer-subgroup {
+    display: flex;
+    flex-direction: row;
+    margin: 0 1.2em 0 1.2em;
+  }
+}
+footer .display-footer-subgroup .footer-href {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 0.4em 0 0.4em;
 }
-footer .display-footer .footer-href i {
+@media (min-width: 1024px) {
+  footer .display-footer-subgroup .footer-href {
+    margin: 0 1em 0 1em;
+    padding: 0;
+  }
+}
+footer .display-footer-subgroup .footer-href i {
   width: 1.5em;
   margin-right: 0.5em;
 }
-footer .display-footer .footer-href a {
+footer .display-footer-subgroup .footer-href a {
   text-decoration: none;
   color: white;
 }
@@ -55,10 +116,10 @@ footer .display-footer .footer-href a {
 }
 @keyframes text-hidden {
   from {
-    max-width: 300px;
+    width: 100%;
   }
   to {
-    max-width: 230px;
+    width: 80%;
   }
 }
 @keyframes reservation-btn_in {
@@ -105,32 +166,34 @@ container {
   width: 100%;
 }
 
-header {
-  height: 56vh;
-  position: relative;
-  background-color: white;
-}
 header .logo-section {
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 0.5em 0 0.5em 0;
-  height: 5.5vh;
+  width: 100%;
+  background-color: white;
+  position: relative;
 }
 header .logo-section a {
   text-decoration: none;
   color: black;
+  position: absolute;
+  left: 0;
 }
-header .logo-section .back-button i {
+header .logo-section a .back-button i {
   color: #383838;
   width: 10vw;
   padding-left: 1em;
 }
-header .logo-section .logo img {
-  width: 45vw;
-  margin-left: 25%;
-  padding-top: 0.6em;
+header .logo-section .logo {
+  z-index: 5;
 }
-header .picture-background .img-restaurant {
+header .logo-section .logo img {
+  height: 30px;
+  margin: 1em 0 0.5em 0;
+}
+
+.picture-background .img-restaurant {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100vw;
@@ -257,7 +320,7 @@ main .menu-section article .menu-card:hover {
 }
 main .menu-section article .menu-card:hover .menu-check_green {
   transform: translateX(0);
-  width: 100px;
+  width: 20%;
 }
 main .menu-section article .menu-card .menu-check_green {
   display: flex;
