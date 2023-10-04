@@ -140,16 +140,28 @@ $between_delay_slice: 0.4s;
     }
 }
 
+@keyframes loader {
+    from {
+        transform: translateY(0);
+    }
+    
+    to {
+        transform: translateY(100%);
+    }
+}
+
+
 .container-loader {
     display: flex;
     justify-content: center;
     width: 100%;
     height: 100%;
-    background-color: $grey;
+    background: linear-gradient(180deg, $grey 70%, darken($dark-grey, 5%) 95%);
     position: fixed;
     z-index: 9998;
-    transform: translateY(100%);
-    transition: transform 0.5s 2s;
+    animation: 0.4s loader 2s ease-in both;
+    // transform: translateY(100%);
+    // transition: transform 0.5s 2s;
 
     .loader {
         display: flex;
@@ -170,13 +182,13 @@ $between_delay_slice: 0.4s;
             z-index:50;
 
             &-handle {
-                background-color: darken($grey, 80);        
+                background-color: darken($grey, 60);        
                 width: 10px;
                 height: 35px;
             }
 
             &-blade {
-                background-color: darken($grey, 80);
+                background-color: darken($grey, 60);
                 border-radius: 0 80% 0 0;
                 width: 5px;
                 height: 70px;
@@ -194,7 +206,8 @@ $between_delay_slice: 0.4s;
                 width: 80px;
                 height:50px;
                 border-radius: 27% 27% 51% 47% / 42% 38% 61% 58%;
-                background-color: tomato;
+                background-color: $tomato;
+                // background: linear-gradient(0deg, $secondary 60%, $primary 90%);
                 display: flex;
                 column-gap: 15px;
                 justify-content: center;
@@ -223,12 +236,22 @@ $between_delay_slice: 0.4s;
 header {
     @include flexbox-column-center;
 
-    & .logo {
+    .banniere {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        background-color: white;
         @include box-shadow(10%);
-        z-index: 5;
-        & img {
-            width: 50%;
-            margin: 4% 25% 2% 25%;
+        z-index: 4;
+
+        & .logo {
+            z-index: 5;
+            & img {
+                height: 30px;
+                width: auto;
+                margin: 1em 0 0.5em 0;
+            }
         }
     }
     & .btn {
@@ -334,6 +357,7 @@ header {
     padding: 2em 1em 2em 1em;
 
     &__card {
+        // height: 1vh;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -352,9 +376,7 @@ header {
                 background-color: $tertiary;
                 position: absolute;
                 transform-origin: center;
-                // width: fit-content;
                 border-radius: 3px;
-                // float: right;
                 right: 1em;
                 top: 1em;
                 z-index: 9;
@@ -370,7 +392,7 @@ header {
             img {
                 display: block;
                 max-width: 100%;
-                height:30vh;
+                height:20vh;
                 width: 100vw;
                 border-radius: 20px 20px 0 0;
                 object-fit: cover;
@@ -381,7 +403,7 @@ header {
                 background-color: white;
                 display: flex;
                 flex-direction: row;
-                height: 12vh;
+                height: 10vh;
                 border-radius: 0 0 15px 15px;
 
                 &--left {
