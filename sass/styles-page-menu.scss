@@ -7,7 +7,7 @@ $animation-del: 500ms;
 $secondary-anim-del: $animation-dur + $animation-del + 500ms;
 $num-dish: 12;
 
-// mixin
+// mixins
 
 @mixin flexbox-column-center {
     display: flex;
@@ -65,6 +65,7 @@ $num-dish: 12;
     box-shadow: 0px 5px 10px 1px darken($dark-grey, 20);
     }
 }
+
 // Layout 
 
 * {
@@ -133,7 +134,7 @@ main {
         justify-content: space-between;
 
         @media (min-width: 1024px){
-            width:50%;
+            width:25em;
             margin: 0 auto;
         }
         
@@ -144,16 +145,15 @@ main {
         }
 
         .align-heart {
-            height: 4vh;
-            width: 6.1vw;
-            padding-right: 2em;
-            padding-top: 0.4em;
+            display: flex;
+            width:32px;
+            height:32px;
+            padding: 1.3em 2em 0 0.2em;
 
-            .heart-img {
-                width: 8vw;
-                height: 5vh;
+            @media (min-width: 1024px) {
+                padding: 1em 2em 0 0.2em; 
             }
-        }
+        } 
     }
 
     .menu-section {
@@ -327,28 +327,3 @@ main {
         }
     }
 }
-
-// Checkbox 
-
-input {
-    opacity: 0;
-    position: absolute;
-    z-index: 999;
-}
-
-input + label {
-    position: relative;
-    @include contoured-heart;
-    background: black;
-    display: inline-block;
-    transform-origin: center;
-    transition: all 250ms cubic-bezier(.4,.0,.23,1);
-}
-
-input:checked + label {
-    @include filled-heart;
-    background: linear-gradient(0deg, $secondary 60%, $primary 90%);
-    display: inline-block;
-    transform-origin: center;
-    animation: shrink-bounce 200ms cubic-bezier(.4,.0,.23,1);
-} 
