@@ -519,6 +519,9 @@ main .restaurants__card article {
     width: 40vw;
   }
 }
+main .restaurants__card article .parent_relative_nouveau {
+  position: relative;
+}
 main .restaurants__card article .link-restaurant {
   display: inline-block;
   text-decoration: none;
