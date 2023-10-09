@@ -6,6 +6,14 @@
     bottom: 50px;
   }
 }
+@keyframes heart-btn_emptying {
+  0% {
+    bottom: 50px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
 @keyframes ring {
   0% {
     transform: translate(0, -18px) scale(0);
@@ -74,6 +82,10 @@ input:checked + label > .white {
 
 input:checked + label > .border-black {
   background: transparent;
+}
+
+input:not(:checked) + label > .white {
+  animation: heart-btn_emptying ease-out 1s both;
 }
 
 * {
@@ -284,7 +296,7 @@ main .restaurant-title {
 }
 @media (min-width: 1024px) {
   main .restaurant-title {
-    width: 25em;
+    width: 22em;
     margin: 0 auto;
   }
 }
@@ -292,6 +304,7 @@ main .restaurant-title h1 {
   font-family: shrikhand;
   font-size: 28px;
   font-weight: 300;
+  text-align: end;
 }
 main .restaurant-title .align-heart {
   display: flex;

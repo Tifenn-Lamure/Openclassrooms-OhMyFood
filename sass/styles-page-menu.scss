@@ -134,7 +134,7 @@ main {
         justify-content: space-between;
 
         @media (min-width: 1024px){
-            width:25em;
+            width:22em;
             margin: 0 auto;
         }
         
@@ -142,6 +142,7 @@ main {
             font-family: shrikhand;
             font-size: 28px;
             font-weight: 300;
+            text-align: end;
         }
 
         .align-heart {
