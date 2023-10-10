@@ -258,7 +258,7 @@ body {
   }
 }
 
-container {
+.container {
   width: 100%;
 }
 
@@ -310,12 +310,7 @@ main .restaurant-title .align-heart {
   display: flex;
   width: 32px;
   height: 32px;
-  padding: 1.3em 2em 0 0.2em;
-}
-@media (min-width: 1024px) {
-  main .restaurant-title .align-heart {
-    padding: 1em 2em 0 0.2em;
-  }
+  padding: 0.5em 2em 0 0.2em;
 }
 main .menu-section {
   padding: 1.5em 0 1.5em 0;

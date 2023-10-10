@@ -94,7 +94,7 @@ body {
     }
 }
 
-container {
+.container {
     width: 100%;
 }
 
@@ -149,11 +149,7 @@ main {
             display: flex;
             width:32px;
             height:32px;
-            padding: 1.3em 2em 0 0.2em;
-
-            @media (min-width: 1024px) {
-                padding: 1em 2em 0 0.2em; 
-            }
+            padding: 0.5em 2em 0 0.2em;
         } 
     }
 

@@ -45,7 +45,7 @@ body {
     margin: 0;
 }
 
-container {
+.container {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -230,7 +230,7 @@ main {
             @media (min-width: 1024px) {
                 padding: 0.5em 2em 0.8em 2em;
                 font-size: 30px;
-        }
+            }
         }
         p {
             padding: 0 2em 1em 2em;
@@ -239,7 +239,7 @@ main {
 
             @media (min-width: 1024px) {
                 font-size: 13px;
-        }
+            }
         }
         &-btn {
             background: linear-gradient(180deg, $secondary 0%, $primary 70%);
@@ -253,7 +253,7 @@ main {
             animation: reservation-btn_out 500ms ease-in-out backwards;
 
             &:hover { 
-            animation: reservation-btn_in 500ms ease-in-out forwards;
+                animation: reservation-btn_in 500ms ease-in-out forwards;
             }
         }
     }
@@ -285,7 +285,6 @@ main {
             row-gap: 0.5em;
 
             @media (min-width: 1024px){
-                
                 flex-direction: row;
                 flex-wrap: nowrap;
                 justify-content: space-between;
