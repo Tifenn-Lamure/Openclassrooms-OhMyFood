@@ -24,34 +24,24 @@ $customGradient: linear-gradient(180deg, $secondary 0%, $primary 70%);
     color:black;
 }
 
-// animations
+// animations 
 
-@keyframes heart-btn_fillingup {
-    0% {
-        bottom: 0;
+@keyframes opacity-heart-icon_in {
+    from {
+    opacity: 0;   
     }
-    100% {
-        bottom: 50px;
+
+    to {
+    opacity: 1;
     }
 }
 
-@keyframes heart-btn_emptying {
-    0% {
-        bottom: 50px;
+@keyframes opacity-heart-icon_out {
+    from {
+    opacity: 1;
     }
-    100% {
-        bottom: 0;
-    }
-}
-
-@keyframes ring {
-    0% {
-        transform: translate(0,-18px) scale(0) ;
-        opacity: 1;
-    }
-    100% {
-        transform: translate(0,-18px) scale(1);
-        opacity: 0;
+    to {
+    opacity: 0;
     }
 }
 
@@ -66,11 +56,11 @@ $customGradient: linear-gradient(180deg, $secondary 0%, $primary 70%);
         background: $customGradient;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        opacity: 0;
+        animation: opacity-heart-icon_out 200ms ease-in-out forwards;
 
         &:hover {
             opacity: 1;
-            transition: opacity 0.2s;
+            animation: opacity-heart-icon_in 200ms ease-in-out forwards;
         }
     }
 }
