@@ -1,45 +1,6 @@
 @import 'common';
 
-// mixin
-
-@mixin flexbox-column-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-//animations 
-
-@keyframes reservation-btn_in {
-    from {
-        opacity: 1;   
-    }
-    to {
-        opacity: 0.8;
-        box-shadow: -1px 0px 10px 5px darken($dark-grey, 10);
-    }
-}
-
-@keyframes reservation-btn_out {
-    from {
-        opacity: 0.8;
-        box-shadow: -1px 0px 10px 5px darken($dark-grey, 10);
-    }
-    to {
-        opacity: 1;
-        box-shadow: 0px 5px 10px 1px darken($dark-grey, 20);
-    }
-}
-
 // page layout 
-
-* {
-    font-family: 'Roboto', sans-serif;
-}
-
-p {
-    margin: 0;
-}
 
 body {
     margin: 0;
@@ -49,10 +10,31 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    // max-width: 375px;
     box-sizing: border-box;
 }
 
+// loader /////////////////////////////
+
+$init_delay_slice : 0.4s;
+$between_delay_slice: 0.4s;
+
+@keyframes fade-slice{
+    0% {
+        opacity : 0;
+    }
+    100% {
+        opacity : 1;
+    }
+}
+@keyframes loader {
+    from {
+        transform: translateY(0);
+    }
+    
+    to {
+        transform: translateY(100%);
+    }
+}
 @keyframes translate-knife{
     0% {
         transform: translate(0);
@@ -92,29 +74,6 @@ body {
         opacity: 0;
     }
 }
-
-$init_delay_slice : 0.4s;
-$between_delay_slice: 0.4s;
-
-@keyframes fade-slice{
-    0% {
-        opacity : 0;
-    }
-    100% {
-        opacity : 1;
-    }
-}
-
-@keyframes loader {
-    from {
-        transform: translateY(0);
-    }
-    
-    to {
-        transform: translateY(100%);
-    }
-}
-
 .container-loader {
     display: flex;
     justify-content: center;
@@ -124,8 +83,6 @@ $between_delay_slice: 0.4s;
     position: fixed;
     z-index: 9998;
     animation: 0.4s loader 2s ease-in both;
-    // transform: translateY(100%);
-    // transition: transform 0.5s 2s;
 
     .loader {
         display: flex;
@@ -171,7 +128,6 @@ $between_delay_slice: 0.4s;
                 height:50px;
                 border-radius: 27% 27% 51% 47% / 42% 38% 61% 58%;
                 background-color: $tomato;
-                // background: linear-gradient(0deg, $secondary 60%, $primary 90%);
                 display: flex;
                 column-gap: 15px;
                 justify-content: center;
@@ -197,6 +153,8 @@ $between_delay_slice: 0.4s;
         }
     }
 }
+
+/////////////////////////////////////
 
 main {
 
@@ -264,18 +222,12 @@ main {
         margin: 2em 1em 4em 1em;
 
         @media (min-width: 1024px) {
-            // flex-direction: row;
-            // flex-wrap: wrap;
-            // flex-flow: row;
-            // margin: 0;
             padding: 0 3em 0 3em;
         }
 
         h2 {
             @media (min-width: 1024px) {
                 font-size: 20px;
-                // width: 20vw;
-                // margin-right: 10em;
             }
         }
 
@@ -297,7 +249,6 @@ main {
                 width: 90vw;
                 justify-content: center;
                 @media (min-width: 1024px) {
-                    // transform: scale(0.9);
                     width: 30vw;
                 }
 
@@ -306,7 +257,6 @@ main {
                     display: flex;
                     background-color: $grey;
                     padding: 1.5em 0 1.5em 1.5em;
-                    // margin-left: 15px;
                     width: 90%;
                     border-radius: 20px;
 
@@ -356,7 +306,6 @@ main {
         }    
 
         &__card {
-            // height: 1vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -451,7 +400,7 @@ main {
  
                     .align-heart {
                         @include align-heart;
-                        padding: 1em 2em 0 0;
+                        margin: 1em 2em 0 0;
                     }  
                 }
             }

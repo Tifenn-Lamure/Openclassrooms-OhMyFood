@@ -14,8 +14,26 @@
     opacity: 0;
   }
 }
+@keyframes reservation-btn_in {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.8;
+    box-shadow: -1px 0px 10px 5px #d1d1d1;
+  }
+}
+@keyframes reservation-btn_out {
+  from {
+    opacity: 0.8;
+    box-shadow: -1px 0px 10px 5px #d1d1d1;
+  }
+  to {
+    opacity: 1;
+    box-shadow: 0px 5px 10px 1px #b7b7b7;
+  }
+}
 .heart_icon {
-  width: 30px;
   display: flex;
   justify-content: center;
 }
@@ -155,33 +173,6 @@ footer .display-footer-subgroup .footer-href a {
     width: 80%;
   }
 }
-@keyframes reservation-btn_in {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.8;
-    box-shadow: -1px 0px 10px 5px #d1d1d1;
-  }
-}
-@keyframes reservation-btn_out {
-  from {
-    opacity: 0.8;
-    box-shadow: -1px 0px 10px 5px #d1d1d1;
-  }
-  to {
-    opacity: 1;
-    box-shadow: 0px 5px 10px 1px #b7b7b7;
-  }
-}
-* {
-  font-family: "Roboto", sans-serif;
-}
-
-p {
-  margin: 0;
-}
-
 h1 {
   margin: 0;
 }
@@ -250,7 +241,6 @@ main .restaurant-title h1 {
   text-align: end;
 }
 main .restaurant-title .align-heart {
-  width: 2em;
   height: 2em;
   position: relative;
   display: flex;

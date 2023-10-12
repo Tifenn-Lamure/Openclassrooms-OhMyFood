@@ -14,8 +14,26 @@
     opacity: 0;
   }
 }
+@keyframes reservation-btn_in {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.8;
+    box-shadow: -1px 0px 10px 5px #d1d1d1;
+  }
+}
+@keyframes reservation-btn_out {
+  from {
+    opacity: 0.8;
+    box-shadow: -1px 0px 10px 5px #d1d1d1;
+  }
+  to {
+    opacity: 1;
+    box-shadow: 0px 5px 10px 1px #b7b7b7;
+  }
+}
 .heart_icon {
-  width: 30px;
   display: flex;
   justify-content: center;
 }
@@ -137,33 +155,6 @@ footer .display-footer-subgroup .footer-href a {
   color: white;
 }
 
-@keyframes reservation-btn_in {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.8;
-    box-shadow: -1px 0px 10px 5px #d1d1d1;
-  }
-}
-@keyframes reservation-btn_out {
-  from {
-    opacity: 0.8;
-    box-shadow: -1px 0px 10px 5px #d1d1d1;
-  }
-  to {
-    opacity: 1;
-    box-shadow: 0px 5px 10px 1px #b7b7b7;
-  }
-}
-* {
-  font-family: "Roboto", sans-serif;
-}
-
-p {
-  margin: 0;
-}
-
 body {
   margin: 0;
 }
@@ -175,6 +166,22 @@ body {
   box-sizing: border-box;
 }
 
+@keyframes fade-slice {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes loader {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
 @keyframes translate-knife {
   0% {
     transform: translate(0);
@@ -212,22 +219,6 @@ body {
   100% {
     transform: translate(300px);
     opacity: 0;
-  }
-}
-@keyframes fade-slice {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes loader {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(100%);
   }
 }
 .container-loader {
@@ -542,7 +533,6 @@ main .restaurants__card article .restaurants__card--disposition .restaurant-name
   color: black;
 }
 main .restaurants__card article .restaurants__card--disposition .align-heart {
-  width: 2em;
   height: 2em;
   position: relative;
   display: flex;
@@ -550,5 +540,5 @@ main .restaurants__card article .restaurants__card--disposition .align-heart {
   justify-content: center;
   cursor: pointer;
   color: black;
-  padding: 1em 2em 0 0;
+  margin: 1em 2em 0 0;
 }/*# sourceMappingURL=styles.css.map */
