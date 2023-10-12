@@ -6,17 +6,22 @@ $tomato: #e96f8f;
 $tertiary: #99E2D0;
 $dark-grey: #EAEAEA;
 $grey: #F6F6F6;
+$customGradient: linear-gradient(180deg, $secondary 0%, $primary 70%);
 
 // mixins
 
-@mixin filled-heart {
-    clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
-}
-@mixin contoured-heart {
-    clip-path: path("M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181");
-}
 @mixin box-shadow($_opacity) {
     box-shadow: 0px 5px 10px 1px darken($dark-grey, $_opacity);
+}
+@mixin align-heart {
+    width:2em;
+    height:2em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color:black;
 }
 
 // animations
@@ -50,69 +55,26 @@ $grey: #F6F6F6;
     }
 }
 
-// gestion du coeur checkbox
+// gestion du coeur
 
-.white, .border-black {
-    display: block;
+.heart_icon {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+
+    &_full {
+        background: $customGradient;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 0;
+
+        &:hover {
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+    }
 }
 
-input {
-    opacity: 0;
-    position: absolute;
-    z-index: 99;
-}
-
-input + label {
-    position: relative;
-    @include filled-heart;
-    background: linear-gradient(0deg, $secondary 60%, $primary 90%);
-    width: 100%;
-    z-index: 1;
-}
-
-input + label > .white {
-    width: 40px;
-    height: 40px;
-    position: relative;
-    background: white;
-    width: 100%;
-    z-index: 2;
-}
-
-input + label > .border-black {
-    width: 40px;
-    height: 40px;
-    top:-40px;
-    position: relative;
-    @include contoured-heart;
-    background: black;
-    width: 100%;
-    z-index: 3;
-}
-
-input:checked ~ .border {
-    content: '';
-    width: 3em; 
-    height: 3em;
-    border-radius: 100%;
-    border: 6px solid $secondary;
-    background-color: transparent;
-    position: absolute;
-    right: 2em;
-    animation: ring 2s 1 both; 
-}
-
-input:checked + label > .white{
-    animation: heart-btn_fillingup ease-out 1s forwards;
-} 
-
-input:checked + label > .border-black {
-    background: transparent;
-}
-
-input:not(:checked) + label > .white{
-    animation: heart-btn_emptying ease-out 1s both;
-} 
 // page layout 
 
 * {
@@ -221,7 +183,6 @@ footer {
                     color: white;
                 }
             }
-        }
-        
+        }    
     }
 }

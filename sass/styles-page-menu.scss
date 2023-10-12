@@ -146,10 +146,7 @@ main {
         }
 
         .align-heart {
-            display: flex;
-            width:32px;
-            height:32px;
-            padding: 0.5em 2em 0 0.2em;
+            @include align-heart;
         } 
     }
 
@@ -303,7 +300,7 @@ main {
         
         button {
             width: 15em;
-            background: linear-gradient(180deg, $secondary 0%, $primary 70%);
+            background: $customGradient;
             border-radius: 50px;
             border: none;
             color: white;

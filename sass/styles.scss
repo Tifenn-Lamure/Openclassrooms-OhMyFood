@@ -448,17 +448,11 @@ main {
                         font-size: 17px;
                         color: black;
                     }
-
+ 
                     .align-heart {
-                        display: flex;
-                        width:32px;
-                        height:32px;
-                        padding: 1.3em 2em 0 0.2em;
-
-                        @media (min-width: 1024px) {
-                            padding: 1em 2em 0 0.2em; 
-                        }
-                    }   
+                        @include align-heart;
+                        padding: 1em 2em 0 0;
+                    }  
                 }
             }
         }   
