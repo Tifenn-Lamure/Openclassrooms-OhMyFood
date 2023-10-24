@@ -94,7 +94,7 @@ footer {
   justify-content: space-between;
   background-color: #2b2b2b;
   color: white;
-  height: 30vh;
+  height: 20vh;
   padding: 2em;
 }
 @media (min-width: 1024px) {
@@ -201,7 +201,12 @@ body {
      object-fit: cover;
   width: 100vw;
   max-width: 100%;
-  height: 55vh;
+  height: 30vh;
+}
+@media (min-width: 768px) {
+  .picture-background .img-restaurant {
+    height: 40vh;
+  }
 }
 
 main {
