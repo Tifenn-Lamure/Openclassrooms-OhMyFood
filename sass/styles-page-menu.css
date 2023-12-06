@@ -317,50 +317,32 @@ main .menu-section article .menu-card {
   display: flex;
   width: 100%;
   overflow: hidden;
+  border-radius: 0 15px 15px 0;
+}
+main .menu-section article .menu-card:hover .menu-check_green {
+  margin-right: 0;
 }
 main .menu-section article .menu-card-text {
   display: flex;
-  position: relative;
   flex-direction: row;
   justify-content: space-between;
   padding: 0.9em;
   width: 100%;
   margin-right: 0;
 }
-main .menu-section article .menu-card-text-title {
-  display: flex;
-  flex-direction: column;
-  max-width: 55vw;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-main .menu-section article .menu-card-text-title:hover {
-  animation: text-hidden 0.5s both;
-}
-main .menu-section article .menu-card-text-price {
-  display: flex;
-  flex-direction: column;
-}
 main .menu-section article .menu-card-text .price {
   font-weight: 700;
   font-size: 15px;
-}
-main .menu-section article .menu-card:hover .menu-check_green {
-  margin-right: 0;
-  transition: margin-right 1s;
-}
-main .menu-section article .menu-card:hover .menu-card-text-price {
-  flex-shrink: 0;
 }
 main .menu-section article .menu-card .menu-check_green {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #99E2D0;
-  width: 100px;
+  width: 80px;
   border-radius: 0 15px 15px 0;
-  margin-right: -6rem;
+  margin-right: -80px;
+  transition: all 0.5s ease-in-out;
 }
 main .menu-section article .menu-card .menu-check_green i {
   color: white;

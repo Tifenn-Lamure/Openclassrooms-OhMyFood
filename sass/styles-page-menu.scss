@@ -141,34 +141,35 @@ main {
                 display: flex;
                 width: 100%;
                 overflow: hidden;
+                border-radius: 0 15px 15px 0;
+                &:hover .menu-check_green{
+                    margin-right: 0;
+                }
                  
                 &-text {
                     display: flex;
                     // justify-content: space-between;
-                    position: relative;
+                    // position: relative;
                     flex-direction: row;
                     justify-content: space-between;
                     padding: 0.9em;
                     width: 100%;
                     margin-right: 0;
 
-                    &-title {
-                        display: flex;
-                        flex-direction: column;
-                        max-width: 55vw;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                        overflow: hidden;
+                    // &-title {
+                    //     display: flex;
+                    //     flex-direction: column;
+                    //     // max-width: 55vw;
+                    //     text-overflow: ellipsis;
+                    //     white-space: nowrap;
+                    //     overflow: hidden;
 
-                        &:hover {
-                            animation: text-hidden 0.5s both;
-                        }
-                    }
+                    // }
 
-                    &-price {
-                        display: flex;
-                        flex-direction: column;
-                    }
+                    // &-price {
+                    //     display: flex;
+                    //     flex-direction: column;
+                    // }
 
                     .price {
                         font-weight: 700;
@@ -176,23 +177,19 @@ main {
                     }
                 }
 
-                &:hover .menu-check_green {
-                    margin-right: 0;
-                    transition: margin-right 1s;
-                }
-
-                &:hover .menu-card-text-price {
-                    flex-shrink: 0;
-                }
+                // &:hover .menu-card-text-price {
+                //     flex-shrink: 0;
+                // }
 
                 .menu-check_green {
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     background-color: $tertiary;
-                    width: 100px;
+                    width: 80px;
                     border-radius: 0 15px 15px 0;
-                    margin-right: -6rem;
+                    margin-right: -80px;
+                    transition: all 0.5s ease-in-out;
 
                     i {
                         color: white;
