@@ -1,4 +1,4 @@
-@import 'common';
+@import "common";
 
 // variables
 
@@ -7,243 +7,237 @@ $animation-del: 500ms;
 $secondary-anim-del: $animation-dur + $animation-del + 500ms;
 $num-dish: 12;
 
-//Animations 
+//Animations
 
 @keyframes thread {
-    0%{
-        opacity: 0;
-        transform: translateY(100px);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-@keyframes text-hidden {
-    from {
-        width: 100%;
-    }
-
-    to {
-        width: 80%;
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-// Layout 
+// Layout
 
 h1 {
-    margin: 0;
+  margin: 0;
 }
 
 h2 {
-    margin: 0;
+  margin: 0;
 }
 
 body {
-    background-color: $grey;
-    margin: 0;
-    max-width: 100%;
+  background-color: $grey;
+  margin: 0;
+  max-width: 100%;
 
-    @media (min-width: 1024px){
-        background-color: white;
-    }
+  @media (min-width: 1024px) {
+    background-color: white;
+  }
 }
 
 .container {
-    width: 100%;
+  width: 100%;
 }
 
 .picture-background {
-        
-    .img-restaurant {
-        object-fit: cover;
-        width: 100vw;
-        max-width: 100%;
-        height: 30vh;
+  .img-restaurant {
+    object-fit: cover;
+    width: 100vw;
+    max-width: 100%;
+    height: 30vh;
 
-        @media (min-width: 768px) {
-            height: 40vh;
-        }
+    @media (min-width: 768px) {
+      height: 40vh;
     }
+  }
 }
 
 main {
-    background-color: $grey;
-    border-radius: 40px 40px 0 0;
-    position: relative;
-    padding: 2em 1em 1em 1em;
-    top: -40px;
+  background-color: $grey;
+  border-radius: 40px 40px 0 0;
+  position: relative;
+  padding: 2em 1em 1em 1em;
+  top: -40px;
 
-    @media (min-width: 1024px){
-        width:80%;
-        margin: -40px auto 0 auto;
-        top:0;
+  @media (min-width: 1024px) {
+    width: 80%;
+    margin: -40px auto 0 auto;
+    top: 0;
+  }
+
+  .restaurant-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (min-width: 768px) {
+      width: 22em;
+      margin: 0 auto;
     }
 
-    .restaurant-title {
+    h1 {
+      font-family: shrikhand;
+      font-size: 28px;
+      font-weight: 300;
+      text-align: end;
+    }
+
+    .align-heart {
+      @include align-heart;
+    }
+  }
+
+  .menu-section {
+    padding: 1.5em 0 1.5em 0;
+    display: block;
+
+    @media (min-width: 1024px) {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    @for $i from 1 through $num-dish {
+      &--#{$i} {
+        animation: thread
+          ($animation-del * $i * 0.6)
+          ease-in-out
+          $animation-dur
+          normal
+          backwards
+          running;
+      }
+    }
+
+    .section-title {
+      font-size: 1em;
+      font-weight: 300;
+      padding-bottom: 0.3em;
+    }
+    .blue-line {
+      display: block;
+      width: 10vw;
+      height: 3px;
+      background: $tertiary;
+    }
+
+    article {
+      display: flex;
+      background-color: white;
+      border-radius: 15px;
+      margin-top: 0.9em;
+      @include box-shadow(5);
+
+      .menu-card {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 0 15px 15px 0;
 
-        @media (min-width: 768px){
-            width:22em;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            font-family: shrikhand;
-            font-size: 28px;
-            font-weight: 300;
-            text-align: end;
-        }
+        &-text {
+          display: flex;
+          overflow: hidden;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          padding: 0.9em;
+          width: 100%;
 
-        .align-heart {
-            @include align-heart;
-        } 
-    }
-
-    .menu-section {
-        padding: 1.5em 0 1.5em 0;
-        display: block;
-
-        @media (min-width: 1024px){
-            width:80%;
-            margin: 0 auto;
-        }
-
-        @for $i from 1 through $num-dish {
-            &--#{$i} {
-                animation: thread ($animation-del * $i * 0.6) ease-in-out $animation-dur normal backwards running;
-            }
-        }
-
-        .section-title {
-            font-size: 1em;
-            font-weight: 300;
-            padding-bottom: 0.3em;
-        }
-        .blue-line {
-            display: block;
-            width: 10vw;
-            height: 3px;
-            background: $tertiary;
-        }
-
-        article {
+          &-subtitle-and-price {
             display: flex;
-            background-color: white;
-            border-radius: 15px;
-            margin-top: 0.9em;
-            @include box-shadow(5);
+            flex-direction: row;
+            justify-content: space-between;
+          }
 
-            .menu-card{
-                display: flex;
-                width: 100%;
-                overflow: hidden;
-                border-radius: 0 15px 15px 0;
-                &:hover .menu-check_green{
-                    margin-right: 0;
-                }
-                 
-                &-text {
-                    display: flex;
-                    // justify-content: space-between;
-                    // position: relative;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    padding: 0.9em;
-                    width: 100%;
-                    margin-right: 0;
-
-                    // &-title {
-                    //     display: flex;
-                    //     flex-direction: column;
-                    //     // max-width: 55vw;
-                    //     text-overflow: ellipsis;
-                    //     white-space: nowrap;
-                    //     overflow: hidden;
-
-                    // }
-
-                    // &-price {
-                    //     display: flex;
-                    //     flex-direction: column;
-                    // }
-
-                    .price {
-                        font-weight: 700;
-                        font-size: 15px;
-                    }
-                }
-
-                // &:hover .menu-card-text-price {
-                //     flex-shrink: 0;
-                // }
-
-                .menu-check_green {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background-color: $tertiary;
-                    width: 80px;
-                    border-radius: 0 15px 15px 0;
-                    margin-right: -80px;
-                    transition: all 0.5s ease-in-out;
-
-                    i {
-                        color: white;
-                    }
-                }
-            }
-
-            .dish-name {
-                font-weight: 500;
-                font-size: 18px;
-                // max-width: 300px;
-                // width: 230px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .assaisonement_name {
-                font-weight: 300;
-                font-size: 15px;
-                // max-width: 300px;
-                // width: 230px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
+          .price {
+            text-align: right;
+            font-weight: 700;
+            font-size: 15px;
+          }
         }
-    }
+        &:hover {
+          transition: margin-right 1s;
+          margin-right: 0;
+        }
 
-    .button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        button {
-            width: 15em;
-            background: $customGradient;
-            border-radius: 50px;
-            border: none;
+        .menu-check_green {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $tertiary;
+          width: 80px;
+          border-radius: 0 15px 15px 0;
+          transition: all 0.5s ease-in-out;
+
+          margin-right: -80px;
+
+          i {
             color: white;
-            padding: 1em 1em 1em 1em;
-            font-weight: 400;
-            margin: 0 auto 0 auto;
-            @include box-shadow(20%);
-            animation: reservation-btn_out 500ms ease-in-out backwards;
-
-            &:hover { 
-                animation: reservation-btn_in 500ms ease-in-out forwards;
-            }
-
-            span {
-                font-size: 16px;
-                font-weight: 500;
-            }
+          }
         }
+        &:hover .menu-check_green {
+          margin-right: 0px;
+        }
+      }
+
+      .menu-card-text-title {
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+          animation: text-hidden 0.5s both;
+        }
+      }
+
+      .dish-name {
+        font-weight: 500;
+        font-size: 18px;
+        max-width: 300px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .assaisonement_name {
+        font-weight: 300;
+        font-size: 15px;
+        max-width: 300px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      width: 15em;
+      background: $customGradient;
+      border-radius: 50px;
+      border: none;
+      color: white;
+      padding: 1em 1em 1em 1em;
+      font-weight: 400;
+      margin: 0 auto 0 auto;
+      @include box-shadow(20%);
+      animation: reservation-btn_out 500ms ease-in-out backwards;
+
+      &:hover {
+        animation: reservation-btn_in 500ms ease-in-out forwards;
+      }
+
+      span {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
 }
