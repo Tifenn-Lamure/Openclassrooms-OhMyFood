@@ -321,60 +321,53 @@ main .menu-section article .menu-card {
 main .menu-section article .menu-card-text {
   display: flex;
   position: relative;
-  transform-origin: left;
-  flex-direction: column;
-  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 0.9em;
   width: 100%;
   margin-right: 0;
 }
-main .menu-section article .menu-card-text:hover {
+main .menu-section article .menu-card-text-title {
+  display: flex;
+  flex-direction: column;
+  max-width: 55vw;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+main .menu-section article .menu-card-text-title:hover {
   animation: text-hidden 0.5s both;
 }
-main .menu-section article .menu-card-text-subtitle-and-price {
+main .menu-section article .menu-card-text-price {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
 }
 main .menu-section article .menu-card-text .price {
-  text-align: right;
   font-weight: 700;
   font-size: 15px;
 }
-main .menu-section article .menu-card:hover {
-  transition: margin-right 1s;
-  margin-right: 0;
-}
 main .menu-section article .menu-card:hover .menu-check_green {
-  transform: translateX(0);
-  width: 20%;
+  margin-right: 0;
+  transition: margin-right 1s;
+}
+main .menu-section article .menu-card:hover .menu-card-text-price {
+  flex-shrink: 0;
 }
 main .menu-section article .menu-card .menu-check_green {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #99E2D0;
-  width: 0;
+  width: 100px;
   border-radius: 0 15px 15px 0;
-  transition: all 0.5s;
-  position: relative;
-  right: 0;
-  transform: translateX(60px);
+  margin-right: -6rem;
 }
 main .menu-section article .menu-card .menu-check_green i {
   color: white;
 }
-main .menu-section article .menu-card-text-title {
-  display: flex;
-  flex-direction: column;
-}
-main .menu-section article .menu-card-text-title:hover {
-  animation: text-hidden 0.5s both;
-}
 main .menu-section article .dish-name {
   font-weight: 500;
   font-size: 18px;
-  max-width: 300px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -382,7 +375,6 @@ main .menu-section article .dish-name {
 main .menu-section article .assaisonement_name {
   font-weight: 300;
   font-size: 15px;
-  max-width: 300px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
